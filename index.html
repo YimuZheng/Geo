@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141a24">
+  <title>A Place You Can't Miss</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="geo.js" defer></script>
+</head>
+<body>
+  <main class="site" id="site" data-state="idle">
+    <div class="location-status" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="status">Location inactive</span>
+    </div>
+
+    <section class="reveal" aria-label="Location-based message">
+      <h1 id="message" aria-live="polite">Find the place.</h1>
+      <p class="distance" id="distance">Your location will reveal the message.</p>
+    </section>
+
+    <div class="controls">
+      <button id="toggleButton" type="button">Start tracking</button>
+      <p class="accuracy" id="accuracy" aria-live="polite">Location permission required</p>
+    </div>
+  </main>
+</body>
+</html>

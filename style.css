@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #141a24;
+  color: #f0f3f8;
+}
+
+.site {
+  --accent: #8d9db1;
+  --glow: rgba(141, 157, 177, 0.09);
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(26px, 7vw, 56px);
+  background: radial-gradient(ellipse 58% 40% at 50% 47%, var(--glow), transparent 80%);
+  transition: background 600ms ease;
+}
+
+.site[data-state="far"] {
+  --accent: #9bb7d0;
+  --glow: rgba(92, 148, 198, 0.13);
+}
+
+.site[data-state="near"] {
+  --accent: #efc88f;
+  --glow: rgba(230, 164, 89, 0.17);
+}
+
+.site[data-state="found"] {
+  --accent: #a1e0c0;
+  --glow: rgba(75, 213, 151, 0.19);
+}
+
+.location-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  letter-spacing: 0.025em;
+  color: #adbac9;
+}
+
+.status-dot {
+  height: 8px;
+  width: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--glow);
+  transition: background 350ms ease;
+}
+
+.reveal {
+  width: 100%;
+  text-align: center;
+  margin: auto 0;
+  padding: 44px 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(40px, 9vw, 78px);
+  font-weight: 550;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  color: var(--accent);
+  text-wrap: balance;
+  transition: color 450ms ease;
+}
+
+h1.updated { animation: appear 550ms ease both; }
+
+.distance {
+  margin: 24px 0 0;
+  min-height: 23px;
+  color: #a8b5c5;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.controls {
+  width: min(100%, 380px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+button {
+  width: 100%;
+  min-height: 56px;
+  border: 1px solid #879caf;
+  border-radius: 12px;
+  background: #d1e2ef;
+  color: #162333;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+button:hover { background: #edf5fc; }
+button:active { transform: scale(0.99); }
+button:focus-visible { outline: 2px solid #92caff; outline-offset: 4px; }
+
+.accuracy {
+  margin: 14px 0 0;
+  color: #8e9dad;
+  font-size: 12px;
+  min-height: 20px;
+}
+
+@keyframes appear {
+  from { opacity: 0.3; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
